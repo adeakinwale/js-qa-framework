@@ -1,0 +1,315 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 6,
+    "passes": 4,
+    "pending": 0,
+    "failures": 2,
+    "start": "2018-12-14T07:54:39.031Z",
+    "end": "2018-12-14T07:55:02.216Z",
+    "duration": 23185,
+    "testsRegistered": 6,
+    "passPercent": 66.7,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "warning",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "729451a8-4edb-4e6b-b323-430437755363",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [
+      {
+        "title": "\"after all\" hook",
+        "fullTitle": "\"after all\" hook",
+        "timedOut": false,
+        "duration": 0,
+        "pass": false,
+        "fail": false,
+        "pending": false,
+        "code": "if (seleniumServer) {\n  return seleniumServer.kill();\n}",
+        "err": {},
+        "isRoot": true,
+        "uuid": "467a999b-db6d-4c35-a1eb-c112e0faf250",
+        "isHook": true,
+        "skipped": false
+      }
+    ],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "54b6b7e4-6b84-4c64-9750-83ef93bda7a7",
+        "title": "[chrome]",
+        "fullFile": "C:\\Users\\adebambo\\Desktop\\dev-works\\qa-fmwk\\test\\invitees.js",
+        "file": "\\test\\invitees.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "714014bb-cd3d-4f4a-b261-7a363c866e57",
+            "title": "RSVP site",
+            "fullFile": "C:\\Users\\adebambo\\Desktop\\dev-works\\qa-fmwk\\test\\invitees.js",
+            "file": "\\test\\invitees.js",
+            "beforeHooks": [
+              {
+                "title": "\"before all\" hook",
+                "fullTitle": "[chrome] RSVP site \"before all\" hook",
+                "timedOut": false,
+                "duration": 5975,
+                "pass": false,
+                "fail": false,
+                "pending": false,
+                "code": "driver = await env.builder().build()\npage = new RsvpPage(driver)\nawait page.open();",
+                "err": {},
+                "isRoot": false,
+                "uuid": "b530e295-0881-4aa1-9a56-756cc1c05d5a",
+                "isHook": true,
+                "skipped": false
+              }
+            ],
+            "afterHooks": [
+              {
+                "title": "\"after all\" hook",
+                "fullTitle": "[chrome] RSVP site \"after all\" hook",
+                "timedOut": false,
+                "duration": 1,
+                "pass": false,
+                "fail": false,
+                "pending": false,
+                "code": "driver.quit();",
+                "err": {},
+                "isRoot": false,
+                "uuid": "f19e3180-fd54-4324-b414-ec4042e33db4",
+                "isHook": true,
+                "skipped": false
+              }
+            ],
+            "tests": [
+              {
+                "title": "has invitee list",
+                "fullTitle": "[chrome] RSVP site has invitee list",
+                "timedOut": false,
+                "duration": 3186,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "let elements = await driver.findElements(page.locators.invitedList); \nassert(elements.length > 0)",
+                "err": {},
+                "isRoot": false,
+                "uuid": "f3233015-0533-4dec-8586-bc4efbf09509",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "has registration form",
+                "fullTitle": "[chrome] RSVP site has registration form",
+                "timedOut": false,
+                "duration": 27,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "let elements = await driver.findElements(page.locators.registrationForm); \nassert(elements.length > 0)",
+                "err": {},
+                "isRoot": false,
+                "uuid": "372c54ee-aec8-4caf-8ce2-05187635d770",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "loads existing invitations",
+                "fullTitle": "[chrome] RSVP site loads existing invitations",
+                "timedOut": false,
+                "duration": 1079,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "//await driver.manage().setTimeouts({implicit: 6000});\nlet list = await driver.findElement(page.locators.invitedList);\nawait driver.wait(\n    until.elementLocated(page.locators.invitees)\n)\n           // let invitees = await driver.findElements(page.locators.invitees);\nlet text = await list.getText();\nlogReport.setReportName(this, 'customReportName');\nassert(text.includes());",
+                "err": {
+                  "message": "AssertionError [ERR_ASSERTION]: false == true",
+                  "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\invitees.js:47:13)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:189:7)",
+                  "diff": "- false\n+ true\n"
+                },
+                "isRoot": false,
+                "uuid": "14a3ad1e-0f3c-4847-abe6-fb58487471de",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "f3233015-0533-4dec-8586-bc4efbf09509",
+              "372c54ee-aec8-4caf-8ce2-05187635d770"
+            ],
+            "failures": [
+              "14a3ad1e-0f3c-4847-abe6-fb58487471de"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 4292,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 20000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      },
+      {
+        "uuid": "255fae31-be0c-4f13-a741-50cc4378ebc7",
+        "title": "[firefox]",
+        "fullFile": "C:\\Users\\adebambo\\Desktop\\dev-works\\qa-fmwk\\test\\invitees.js",
+        "file": "\\test\\invitees.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "fa59b38f-7dca-4239-b5f3-8236a3fea9c1",
+            "title": "RSVP site",
+            "fullFile": "C:\\Users\\adebambo\\Desktop\\dev-works\\qa-fmwk\\test\\invitees.js",
+            "file": "\\test\\invitees.js",
+            "beforeHooks": [
+              {
+                "title": "\"before all\" hook",
+                "fullTitle": "[firefox] RSVP site \"before all\" hook",
+                "timedOut": false,
+                "duration": 7423,
+                "pass": false,
+                "fail": false,
+                "pending": false,
+                "code": "driver = await env.builder().build()\npage = new RsvpPage(driver)\nawait page.open();",
+                "err": {},
+                "isRoot": false,
+                "uuid": "e9ac679d-59b0-48e1-9b62-e6995ab4695f",
+                "isHook": true,
+                "skipped": false
+              }
+            ],
+            "afterHooks": [
+              {
+                "title": "\"after all\" hook",
+                "fullTitle": "[firefox] RSVP site \"after all\" hook",
+                "timedOut": false,
+                "duration": 0,
+                "pass": false,
+                "fail": false,
+                "pending": false,
+                "code": "driver.quit();",
+                "err": {},
+                "isRoot": false,
+                "uuid": "6ca0ea8f-a1f2-4992-8f56-400330d17972",
+                "isHook": true,
+                "skipped": false
+              }
+            ],
+            "tests": [
+              {
+                "title": "has invitee list",
+                "fullTitle": "[firefox] RSVP site has invitee list",
+                "timedOut": false,
+                "duration": 4616,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "let elements = await driver.findElements(page.locators.invitedList); \nassert(elements.length > 0)",
+                "err": {},
+                "isRoot": false,
+                "uuid": "3e3c3a24-3b1d-443b-91e3-3dafef21a94d",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "has registration form",
+                "fullTitle": "[firefox] RSVP site has registration form",
+                "timedOut": false,
+                "duration": 8,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "let elements = await driver.findElements(page.locators.registrationForm); \nassert(elements.length > 0)",
+                "err": {},
+                "isRoot": false,
+                "uuid": "4f2c2d06-d87b-401c-ac7d-40ad1853f04d",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "loads existing invitations",
+                "fullTitle": "[firefox] RSVP site loads existing invitations",
+                "timedOut": false,
+                "duration": 809,
+                "state": "failed",
+                "pass": false,
+                "fail": true,
+                "pending": false,
+                "code": "//await driver.manage().setTimeouts({implicit: 6000});\nlet list = await driver.findElement(page.locators.invitedList);\nawait driver.wait(\n    until.elementLocated(page.locators.invitees)\n)\n           // let invitees = await driver.findElements(page.locators.invitees);\nlet text = await list.getText();\nlogReport.setReportName(this, 'customReportName');\nassert(text.includes());",
+                "err": {
+                  "message": "AssertionError [ERR_ASSERTION]: false == true",
+                  "estack": "AssertionError [ERR_ASSERTION]: false == true\n    at Context.<anonymous> (test\\invitees.js:47:13)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:189:7)",
+                  "diff": "- false\n+ true\n"
+                },
+                "isRoot": false,
+                "uuid": "44d00016-7aca-4af5-920f-48cfcf347de8",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "3e3c3a24-3b1d-443b-91e3-3dafef21a94d",
+              "4f2c2d06-d87b-401c-ac7d-40ad1853f04d"
+            ],
+            "failures": [
+              "44d00016-7aca-4af5-920f-48cfcf347de8"
+            ],
+            "pending": [],
+            "skipped": [],
+            "duration": 5433,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 20000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2018
+}
